@@ -1,0 +1,34 @@
+{
+    "questions":[
+        {
+            "question":"The speaker of the Lok Sabha can ask a member of the house to stop speaking and let another member speak. This phenomenon is known as :",
+            "quetionKey":1,
+            "answer": 1, 
+                    "a":"Crossing the floor",
+                    "b":"Yielding the floor",
+                     "c":"Point of Order",                   
+                    "d":"Calling Attention Motion"
+                  
+        },
+        {
+            "question":"The Comptroller and Auditor General of India can be removed from office in like manner and on like grounds as :  ",
+            "quetionKey":2,
+            "answer": 2,
+                    "a":"High Court Judge",
+                    "b":"Prime Minister",
+                    "c":"Supreme Court Judge",
+                    "d":"None of Above"
+                   
+        },
+        {
+            "question":"Which Article of the Constitution provides freedom to manage religious affairs ?",
+            "quetionKey":3,
+            "answer": 1,
+             "a":"Article 25",
+             "b":"Article 26",  
+             "c":"Article 27",
+             "d":"Article 25"
+
+        }
+    ]
+}

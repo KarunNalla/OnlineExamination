@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-5 offset-md-3" style="margin-left: 322px;">
+        <h2 style="margin-left: 136px;color:brown">Online Examination</h2>
+        <br>
+        <form [formGroup]="Registration" (ngSubmit)="onSubmit(Registration)">
+          <div class="form-group">
+            <label>FullName:</label>
+            <input type="text" formControlName="FullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.FullName.errors }"
+            />
+            <div *ngIf="submitted && f.FullName.errors" class="invalid-feedback">
+              <div *ngIf="f.FullName.errors.required">
+                <span style="color:red"> Full Name is required</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email:</label>
+            <input type="text" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"
+            />
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+              <div *ngIf="f.Email.errors.required">
+                <span style="color: red">Email is required</span>
+              </div>
+              <div *ngIf="f.Email.errors.Email">Email must bes a valid email address</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary" style="margin-left: 200px;margin-top: -0px">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

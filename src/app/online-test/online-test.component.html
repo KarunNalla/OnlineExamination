@@ -1,0 +1,77 @@
+<div class="jumbotron" *ngIf="questions">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-6">
+
+        <h3>Welcome:
+          <strong style="color: chocolate">{{fullname}}</strong>
+        </h3>
+      </div>
+    </div>
+
+    <h3 style="color: brown">Please complete the test</h3>
+    <form #questionTest="ngForm" novalidate>
+      <br>
+      <div class="row" style="border: 1px solid black;">
+        <div class="form-check" style="margin-top: 10px;">
+
+          <div *ngFor="let ques of allQuestions;let i = index">
+
+            <div>{{i+1}}) {{ques.question}}</div>
+            <div class="form-group row">
+
+              
+              <label class="col-md-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Choose Correct Option</label>
+              <div class="col-md-9 col-form-label">
+                <div class="form-check form-check-inline mr-1">
+                  <input class="form-check-input" type="radio" name="{{ques.id}}" value="a" [(ngModel)]="ques.selected">
+                  <label class="form-check-label">a) {{ques.a}} </label>
+                </div>
+                <div class="form-check form-check-inline mr-1">
+                  <input class="form-check-input" type="radio" name="{{ques.id}}" value="b" [(ngModel)]="ques.selected">
+                  <label class="form-check-label">b){{ques.b}}</label>
+                </div>
+                <div class="form-check form-check-inline mr-1">
+                  <input class="form-check-input" type="radio" name="{{ques.id}}" value="c" [(ngModel)]="ques.selected">
+                  <label class="form-check-label">c){{ques.c}}</label>
+                </div>
+                <div class="form-check form-check-inline mr-1">
+                  <input class="form-check-input" type="radio" name="{{ques.id}}" value="d" [(ngModel)]="ques.selected">
+                  <label class="form-check-label">d){{ques.d}}</label>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <br>
+
+
+  <div class="form-group">
+    <button [disabled]="loading" (click)="onSubmit()" class="btn btn-primary" style="margin-left: 267px;margin-top: -0px">Submit</button>
+  </div>
+
+</div>
+
+<div #answerDiv *ngIf="show">
+
+  <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Result</h2>
+  <div class="container" style="border: 1px solid black;">
+
+    <div *ngFor="let ques of allQuestions">
+      <br>
+      <div>{{ques.question}}</div>
+      <div *ngIf="ques.selected != ques.answer" [style.color]="'red'"><strong>Wrong answer</strong></div>
+      <div *ngIf="ques.selected == ques.answer" [style.color]="'green'"><strong>Correct answer</strong></div>
+      <div>Your Answer: {{ques[ques.selected]}}</div>
+      <div>Right Answer: {{ques.answer}}) {{ques[ques.answer]}}</div>
+      <hr>
+    </div>
+  </div>
+</div>
